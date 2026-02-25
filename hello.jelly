@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j:jelly xmlns:j="jelly:core">
+<j:set var="name" value="Adham"/>
+<j:switch on="${name}">
+<j:case value="Adham">
+<p>Welcome ${"adham"}</p>
+</j:case>
+<j:case value="Ahmed">
+<p>Case Value</p>
+</j:case>
+<j:default>
+<p>Default Value</p>
+</j:default>
+</j:switch>
+
+<!-- index -->
+<j:forEach var="index" begin="5" end="6" step="1">
+<j:expr value = "${index}"/>
+</j:forEach>
+
+<!-- ArrayList -->
+<j:new className='java.util.ArrayList' var='names'/>
+<j:invoke on='${names}' method="add">
+<j:arg value='ahmed'/>
+</j:invoke><j:invoke on='${names}' method="add">
+<j:arg value='adham'/>
+</j:invoke><j:invoke on='${names}' method="add">
+<j:arg value='mohamed'/>
+</j:invoke>
+<j:forEach var="name" items="${names}">
+<j:expr value = "${name}"/><br/>
+</j:forEach>
+
+<!--  HashMap-->
+<j:new className='java.util.HashMap' var='names'/>
+<j:invoke on='${names}' method="put">
+<j:arg value='ahmed'/>
+<j:arg value='adham'/>
+</j:invoke>
+<j:invoke on='${names}' method="put">
+<j:arg value='adham'/>
+<j:arg value='adham'/>
+</j:invoke>
+<j:invoke on='${names}' method="put">
+<j:arg value='mohamed'/>
+<j:arg value='adham'/>
+</j:invoke>
+<j:invoke on="${names}" method="entrySet" var="entries"/>
+<j:forEach var="name" items="${names}">
+<j:invoke on="${name}" method="getKey" var="Key"/>
+<j:invoke on="${name}" method="getValue" var="Value"/>
+<p>${Key}:${Value}</p>
+</j:forEach>
+
+</j:jelly>

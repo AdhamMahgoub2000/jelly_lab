@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j:jelly xmlns:j="jelly:core">
+<j:new className="java.util.GregorianCalendar" var="now"/>
+<j:invoke on="${now}" method="set">
+<j:arg value="2026" type="int"/>
+<j:arg value="1" type="int"/>
+<j:arg value="20" type="int"/>
+</j:invoke>
+<j:invoke on="${now}" method="getTime" var="date"/>
+<p>${date}</p>
+</j:jelly>
