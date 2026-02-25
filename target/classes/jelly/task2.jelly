@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<j:jelly xmlns:j="jelly:core">
+<j:invokeStatic className="java.lang.Math" method="min" var="MinimumValue">
+<j:arg value="50" type="int"/>
+<j:arg value="40" type="int"/>
+</j:invokeStatic>
+<p>${MinimumValue}</p>
+</j:jelly>
