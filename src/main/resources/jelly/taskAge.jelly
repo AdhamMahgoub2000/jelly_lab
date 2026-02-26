@@ -1,0 +1,19 @@
+<j:jelly xmlns:j="jelly:core">
+    
+    <input type="date" id="date" />
+    <button onclick="getAge()">Submit</button>
+    <div id="age"></div>
+
+    <script>
+        function getAge() {
+            var val = document.getElementById("date").value;
+            let birthDate = new Date(val);
+            let today = new Date();
+
+            let age = today.getFullYear() - birthDate.getFullYear();
+            document.getElementById("age").innerText = "Age: " + age;
+        }
+
+    </script>
+
+</j:jelly>
